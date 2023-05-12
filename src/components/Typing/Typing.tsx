@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Typing.css";
 
 const Typing: React.FC = () => {
@@ -9,6 +9,7 @@ const Typing: React.FC = () => {
     "You must be a pretty tough fighter to have made it past my cow!";
 
   const validateInputs = (inputValue: string) => {
+    if(win) return
     const exampleArr = example.split("");
     console.log(inputValue);
     if (inputValue.split("").every((el, index) => exampleArr[index] === el)) {
@@ -17,12 +18,12 @@ const Typing: React.FC = () => {
   };
 
   useEffect(() => {
-    if(textInput === example) {
-      setWin(true)
+    if (textInput === example) {
+      setWin(true);
       // disable input?
       // disable game area
     }
-  }, [textInput])
+  }, [textInput]);
 
   return (
     <div>
