@@ -1,8 +1,9 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import "./Typing.css";
 
 const Typing: React.FC = () => {
-  const [textInput, setTextInput] = useState("");
+  const [textInput, setTextInput] = useState<string>("");
+  const [win, setWin] = useState<boolean>(false);
 
   const example =
     "You must be a pretty tough fighter to have made it past my cow!";
@@ -15,6 +16,13 @@ const Typing: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if(textInput === example) {
+      setWin(true)
+      // disable game area
+    }
+  }, [textInput])
+
   return (
     <div>
       <p>{example}</p>
@@ -26,6 +34,7 @@ const Typing: React.FC = () => {
         value={textInput}
         onChange={(e) => validateInputs(e.target.value)}
       />
+      {win && <p>Yay, you win!</p>}
     </div>
   );
 };
