@@ -1,7 +1,9 @@
 .missing {
-  color:rgb(181, 181, 181)
+  color:rgb(181, 181, 181);
+  font-size: 30px;
 }
 
 .correct {
-  color: rgb(1, 175, 1)
+  color: rgb(1, 175, 1);
+  font-size: 30px;
 }
