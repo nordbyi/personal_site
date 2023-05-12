@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Typing: React.FC = () => {
-  return (<h1>HI</h1>)
-}
+  const [textInput, setTextInput] = useState('')
 
-export default Typing
+  const example = 'You must me a pretty tough fighter to have made it past my cow!'
+
+  return (
+    <div>
+      <p>{example}</p>
+      <p>{textInput || 'hi'}</p>
+      <input value={textInput} onChange={e => setTextInput(e.target.value)}/>
+    </div>
+  );
+};
+
+export default Typing;
