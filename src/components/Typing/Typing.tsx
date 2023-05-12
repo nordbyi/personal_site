@@ -19,13 +19,13 @@ const Typing: React.FC = () => {
   useEffect(() => {
     if(textInput === example) {
       setWin(true)
+      // disable input?
       // disable game area
     }
   }, [textInput])
 
   return (
     <div>
-      <p>{example}</p>
       <div>
         <span className="correct">{textInput}</span>
         <span className="missing">{example.substring(textInput.length)}</span>
