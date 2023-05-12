@@ -7,3 +7,8 @@
   color: rgb(1, 175, 1);
   font-size: 30px;
 }
+
+.error {
+  z-index: 1;
+  position:absolute
+}
