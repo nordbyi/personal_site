@@ -8,6 +8,12 @@
   font-size: 30px;
 }
 
+.incorrect {
+  color: rgb(175, 1, 13);
+  font-size: 30px;
+  background-color: rgb(175, 1, 13, .2);
+}
+
 .error {
   z-index: 1;
   position:absolute
