@@ -27,14 +27,27 @@ const Typing: React.FC = () => {
     }
   };
 
-  const checkKeydown = (event: KeyboardEvent, input: string): void => {
-    console.log(input)
-    if (example[input.length] === event.key) {
+  // const checkKeydown = (event: KeyboardEvent, input: string): void => {
+  //   console.log(event.key)
+  //   if (example[input.length] === event.key) {
+  //     setTextInput(input + event.key)
+  //   } else {
+  //     document.addEventListener('keydown', (event) => {
+  //       checkKeydown(event, textInput)}, {once: true})
+  //     }
+  // }
+
+  const checkKeydown = (event: KeyboardEvent, input: string, win: boolean): void => {
+    console.log(event.key)
+    if (win) return
+    if (event.key.length <= 1) {
       setTextInput(input + event.key)
+    } else if (event.key === 'Backspace') {
+      setTextInput(input.substring(0, input.length -1))
     } else {
-      document.addEventListener('keydown', (event) => {
-        checkKeydown(event, textInput)}, {once: true})
-      }
+    document.addEventListener('keydown', (event) => {
+      checkKeydown(event, textInput, win)}, {once: true})
+    }
   }
 
   console.log('text input', textInput)
@@ -42,10 +55,10 @@ const Typing: React.FC = () => {
 
   useEffect(() => {
     document.addEventListener('keydown', (event) => {
-      checkKeydown(event, textInput)}, {once: true})
+      checkKeydown(event, textInput, win)}, {once: true})
     
     return () => {document.removeEventListener('keydown', (event) => {
-      checkKeydown(event, textInput)})}
+      checkKeydown(event, textInput, win)})}
   }, [textInput])
 
   useEffect(() => {
