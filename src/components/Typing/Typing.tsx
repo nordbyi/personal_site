@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import DisplayText from "./DisplayText/DisplayText";
 import "./Typing.css";
 
+interface KeyboardEvent {
+  key: string;
+}
 
 const Typing: React.FC = () => {
   const [textInput, setTextInput] = useState<string>("");
@@ -24,6 +27,27 @@ const Typing: React.FC = () => {
     }
   };
 
+  const checkKeydown = (event: KeyboardEvent, input: string): void => {
+    console.log(input)
+    if (example[input.length] === event.key) {
+      setTextInput(input + event.key)
+    } else {
+      document.addEventListener('keydown', (event) => {
+        checkKeydown(event, textInput)}, {once: true})
+      }
+  }
+
+  console.log('text input', textInput)
+  console.log('text input length', textInput.length)
+
+  useEffect(() => {
+    document.addEventListener('keydown', (event) => {
+      checkKeydown(event, textInput)}, {once: true})
+    
+    return () => {document.removeEventListener('keydown', (event) => {
+      checkKeydown(event, textInput)})}
+  }, [textInput])
+
   useEffect(() => {
     if (textInput === example) {
       setWin(true);
@@ -42,10 +66,10 @@ const Typing: React.FC = () => {
         when pressed with animations that fade after a second or so  */}
         {/* <span className="missing">{example.substring(textInput.length)}</span> */}
       </div>
-      <input
-        value={textInput}
-        onChange={(e) => setTextInput(e.target.value)}
-      />
+      {/* <input
+        // value={textInput}
+        // onChange={(e) => setTextInput(e.target.value)}
+      /> */}
       {win && <p>Yay, you win!</p>}
     </div>
   );
