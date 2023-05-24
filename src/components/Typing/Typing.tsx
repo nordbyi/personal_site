@@ -52,16 +52,14 @@ const Typing: React.FC = () => {
 
   console.log('text input', textInput)
   console.log('text input length', textInput.length)
-  
-  useEffect(() => {
-    if (textInput === example) {
-      setWin(true);
-      // disable game area
-    }
-  }, [textInput]);
 
   useEffect(() => {
-    if(textInput === example) return
+    if(textInput === example) {
+      setWin(true);
+      // disable game area
+      return
+    }
+
     document.addEventListener('keydown', (event) => {
       handleKeydown(event, textInput, win)}, {once: true})
     
