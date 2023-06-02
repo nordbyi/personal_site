@@ -15,7 +15,7 @@ const Typing: React.FC = () => {
 
   const handleKeydown = (event: KeyboardEvent, input: string, win: boolean): void => {
     if (win) return
-    console.log(event.key)
+  
     if (event.key.length <= 1) {
       setTextInput(input + event.key)
     } else if (event.key === 'Backspace') {
@@ -25,8 +25,6 @@ const Typing: React.FC = () => {
       handleKeydown(event, input, win)}, {once: true})
     }
   }
-
-  console.log('text input', textInput)
 
   useEffect(() => {
     if(textInput === example) {
