@@ -4,7 +4,6 @@ import GameArea from "../GameArea/GameArea";
 
 const App: React.FC = () => {
 
-
   return (
     <div className="App">
       <GameArea />
