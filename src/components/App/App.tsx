@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import "./App.css";
 import GameArea from "../GameArea/GameArea";
 
 const App: React.FC = () => {
-  const [win, setWin] = useState<boolean>(false);
+
 
   return (
     <div className="App">
