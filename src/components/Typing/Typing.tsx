@@ -1,20 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import DisplayText from "./DisplayText/DisplayText";
 import "./Typing.css";
+
+interface Props {
+  win: boolean,
+  loss: boolean,
+  setWin: Dispatch<SetStateAction<boolean>>
+}
 
 interface KeyboardEvent {
   key: string;
 }
 
-const Typing: React.FC = () => {
+const Typing: React.FC<Props> = ({win, loss, setWin}) => {
   const [textInput, setTextInput] = useState<string>("");
-  const [win, setWin] = useState<boolean>(false);
+  // const [win, setWin] = useState<boolean>(false);
 
   const example =
     "You must be a pretty tough fighter to have made it past my cow!";
 
   const handleKeydown = (event: KeyboardEvent, input: string, win: boolean): void => {
-    if (win) return
+    if (win || loss) return
   
     if (event.key.length <= 1) {
       setTextInput(input + event.key)
