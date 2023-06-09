@@ -11,7 +11,7 @@ const GameArea: React.FC = () => {
   }, [loss])
 
   return (<div>
-    <Typing />
+    <Typing win={win} loss={loss} setWin={setWin}/>
     <TimerDisplay time={10} win={win} loss={loss} updateGameLoss={setLoss}/>
   </div>)
 }
