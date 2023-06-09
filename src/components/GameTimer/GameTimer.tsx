@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useEffect} from "react";
+import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 
 interface Props {
   time: number,
@@ -8,15 +8,26 @@ interface Props {
 }
 
 const GameTimer:React.FC<Props> = ({time, win, loss, updateGameLoss}) => {
+  const [timeLeft, setTimeLeft] = useState<number>(time)
+
   const timer = setTimeout(() => {
-    updateGameLoss(true) // update game state to a loss
-  }, time)
+    setTimeLeft(timeLeft -1)
+  }, 1000)
 
   useEffect(() => {
-    clearTimeout(timer)
+    if(win === true || loss === true) {
+      clearTimeout(timer)
+    }
   }, [win, loss])
 
-  return <h1>Timer</h1>
+  useEffect(() => {
+    if(timeLeft <= 0) {
+      updateGameLoss(true)
+      clearTimeout(timer)
+    }
+  }, [timeLeft])
+
+  return <p>{timeLeft}</p>
 }
 
 export default GameTimer
