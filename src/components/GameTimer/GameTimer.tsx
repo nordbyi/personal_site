@@ -3,19 +3,19 @@ import React, {Dispatch, SetStateAction, useEffect} from "react";
 interface Props {
   time: number,
   win: boolean,
-  lose: boolean,
-  updateGameLose: Dispatch<SetStateAction<boolean>>
+  loss: boolean,
+  updateGameLoss: Dispatch<SetStateAction<boolean>>
 }
 
-const GameTimer:React.FC<Props> = ({time, win, lose, updateGameLose}) => {
+const GameTimer:React.FC<Props> = ({time, win, loss, updateGameLoss}) => {
   const timer = setTimeout(() => {
-    updateGameLose(true) // update game state to a loss
+    updateGameLoss(true) // update game state to a loss
   }, time)
 
   useEffect(() => {
     clearTimeout(timer)
-  }, [win, lose])
-  
+  }, [win, loss])
+
   return <h1>Timer</h1>
 }
 
