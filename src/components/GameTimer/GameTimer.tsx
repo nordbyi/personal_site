@@ -15,7 +15,7 @@ const GameTimer:React.FC<Props> = ({time, win, loss, updateGameLoss}) => {
   }, 1000)
 
   useEffect(() => {
-    if(win === true || loss === true) {
+    if(win || loss) {
       clearTimeout(timer)
     }
   }, [win, loss])
