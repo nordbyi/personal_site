@@ -2,4 +2,11 @@
   width: 100vw; 
   height: 100px; 
   display: flex;
+  position: relative;
+}
+
+.timer-slider {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
