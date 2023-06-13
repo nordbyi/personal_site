@@ -11,3 +11,16 @@
   height: 75px;
   background: green
 }
+
+.game-over {
+  height: 75px;
+  width: 100%;
+}
+
+.win {
+  background: green;
+}
+
+.loss {
+  background: red;
+}
