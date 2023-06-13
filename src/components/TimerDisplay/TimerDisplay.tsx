@@ -22,7 +22,7 @@ const TimerDisplay: React.FC<Props> = ({time, win, loss, updateGameLoss}) => {
       {!win && !loss && <div className='timer-slider' style={{width: width, transition: `all ${time}s linear`}}>
         <GameTimer time={time} win={win} loss={loss} updateGameLoss={updateGameLoss} />
       </div>}
-      {win || loss && <div className={`game-over ${win ? 'win' : 'loss'}`}></div>}
+      {(win || loss) && <div className={`game-over ${win ? 'win' : 'loss'}`}>You {win ? 'win' : 'lose'}</div>}
     </div>
   );
 };
