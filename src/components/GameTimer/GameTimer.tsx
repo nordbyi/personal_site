@@ -1,33 +1,38 @@
-import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import "./GameTimer.css";
 
 interface Props {
-  time: number,
-  win: boolean,
-  loss: boolean,
-  updateGameLoss: Dispatch<SetStateAction<boolean>>
+  time: number;
+  win: boolean;
+  loss: boolean;
+  updateGameLoss: Dispatch<SetStateAction<boolean>>;
 }
 
-const GameTimer:React.FC<Props> = ({time, win, loss, updateGameLoss}) => {
-  const [timeLeft, setTimeLeft] = useState<number>(time)
+const GameTimer: React.FC<Props> = ({ time, win, loss, updateGameLoss }) => {
+  const [timeLeft, setTimeLeft] = useState<number>(time);
 
   const timer = setTimeout(() => {
-    setTimeLeft(timeLeft -1)
-  }, 1000)
+    setTimeLeft(timeLeft - 1);
+  }, 1000);
 
   useEffect(() => {
-    if(win || loss) {
-      clearTimeout(timer)
+    if (win || loss) {
+      clearTimeout(timer);
     }
-  }, [win, loss])
+  }, [win, loss]);
 
   useEffect(() => {
-    if(timeLeft <= 0) {
-      updateGameLoss(true)
-      clearTimeout(timer)
+    if (timeLeft <= 0) {
+      updateGameLoss(true);
+      clearTimeout(timer);
     }
-  }, [timeLeft])
+  }, [timeLeft]);
 
-  return <p>{timeLeft}</p>
-}
+  return (
+    <div className="timer-div">
+      <p>{timeLeft}</p>
+    </div>
+  );
+};
 
-export default GameTimer
+export default GameTimer;
