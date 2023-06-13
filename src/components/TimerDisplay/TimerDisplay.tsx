@@ -19,7 +19,7 @@ const TimerDisplay: React.FC<Props> = ({time, win, loss, updateGameLoss}) => {
   return (
     <div style={{width: '100vw', height: '100px', display: 'flex'}}>
       <div style={{width: width, height: '100px', background: 'green', transition: `all ${time}s linear`}}></div>
-      <GameTimer time={time} win={win} loss={loss} updateGameLoss={updateGameLoss} />
+      {!win && !loss && <GameTimer time={time} win={win} loss={loss} updateGameLoss={updateGameLoss} />}
       <span></span>
     </div>
   );
