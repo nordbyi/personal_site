@@ -30,7 +30,7 @@ const GameTimer: React.FC<Props> = ({ time, win, loss, updateGameLoss }) => {
 
   return (
     <div className="timer-div">
-      <p>{timeLeft}</p>
+      <p className="countdown">{timeLeft}</p>
     </div>
   );
 };
