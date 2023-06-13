@@ -15,6 +15,10 @@
 .game-over {
   height: 75px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .win {
