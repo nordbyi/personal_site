@@ -1,2 +1,8 @@
 .timer-div {
+  color: white;
+  font-size: 50px;
+}
+
+.countdown {
+  line-height: .7;
 }
