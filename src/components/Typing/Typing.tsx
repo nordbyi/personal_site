@@ -33,7 +33,7 @@ const Typing: React.FC<Props> = ({win, loss, setWin}) => {
   }
 
   useEffect(() => {
-    if(textInput === example) {
+    if(textInput === example && !loss) {
       setWin(true);
       return
     }
@@ -49,7 +49,6 @@ const Typing: React.FC<Props> = ({win, loss, setWin}) => {
         {/* Make error letter component that pops out wrong letters (at random directions?) 
         when pressed with animations that fade after a second or so  */}
       </div>
-      {win && <p>Yay, you win!</p>}
     </div>
   );
 };
