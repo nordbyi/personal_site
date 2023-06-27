@@ -1,19 +1,26 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import './GameText'
 
 interface Props {
-  text: string
+  text: string;
 }
 
-const GameText:React.FC<Props> = ({text}) => {
-  const [textIndex, setTextIndex] = useState<number>(0)
+const GameText: React.FC<Props> = ({ text }) => {
+  const [textIndex, setTextIndex] = useState<number>(0);
 
   useEffect(() => {
+    if (textIndex >= text.length) return;
     setTimeout(() => {
-      setTextIndex(textIndex + 1)
-    }, 25)
-  }, [textIndex])
+      setTextIndex(textIndex + 1);
+    }, 15);
+  }, [textIndex]);
 
-  return <p>{text.substring(0, textIndex)}</p>
-}
+  return (
+    <div>
+      <p className="game-text">{text.substring(0, textIndex)}</p>
+      <p>{textIndex}</p>
+    </div>
+  );
+};
 
-export default GameText
+export default GameText;
