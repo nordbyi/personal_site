@@ -10,7 +10,7 @@ const GameText:React.FC<Props> = ({text}) => {
   useEffect(() => {
     setTimeout(() => {
       setTextIndex(textIndex + 1)
-    }, 100)
+    }, 25)
   }, [textIndex])
 
   return <p>{text.substring(0, textIndex)}</p>
