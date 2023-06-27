@@ -1,13 +1,12 @@
 import React from "react";
-import Typing from "../Typing/Typing";
-import GameTimer from "../GameTimer/GameTimer";
 import "./App.css";
+import GameArea from "../GameArea/GameArea";
 
 const App: React.FC = () => {
+
   return (
     <div className="App">
-      <Typing />
-      <GameTimer />
+      <GameArea />
     </div>
   );
 };
