@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './GameText'
+import './GameText.css'
 
 interface Props {
   text: string;
@@ -12,7 +12,7 @@ const GameText: React.FC<Props> = ({ text }) => {
     if (textIndex >= text.length) return;
     setTimeout(() => {
       setTextIndex(textIndex + 1);
-    }, 15);
+    }, 35);
   }, [textIndex]);
 
   return (
