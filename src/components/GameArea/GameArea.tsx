@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Typing from "../Typing/Typing";
 import TimerDisplay from "../TimerDisplay/TimerDisplay";
 import GameText from "../GameText/GameText";
+import CharacterImage from "../CharacterImage/CharacterImage";
 
 const GameArea: React.FC = () => {
   const [win, setWin] = useState<boolean>(false);
@@ -15,6 +16,7 @@ const GameArea: React.FC = () => {
     <Typing win={win} loss={loss} setWin={setWin}/>
     <TimerDisplay time={20} win={win} loss={loss} updateGameLoss={setLoss}/>
     <GameText text={'Hi! I\'m Ian! I\'m glad you\'re here! I hope you have a good time and enjoy what I have created! If you see something that needs improvement, let me know!'}/>
+    <CharacterImage />
   </div>)
 }
 
