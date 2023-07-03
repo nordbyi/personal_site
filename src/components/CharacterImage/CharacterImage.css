@@ -1,6 +1,6 @@
 .character-img {
   height: 60vh;
-  transition: opacity 1s;
+  transition: opacity .5s;
 }
 
 .fade-in {
