@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './CharacterImage.css'
 
 interface Props {
-  source: string
+  source: string,
+  fade: string
 }
 
-const CharacterImage:React.FC<Props> = ({source}) => {
-  return <img className="character-img" src={source}/>
+const CharacterImage:React.FC<Props> = ({source, fade}) => {
+  useEffect(() => {
+
+  }, [source])
+
+  return <img className={`character-img fade-${fade}`} src={source}/>
 }
 
 export default CharacterImage
