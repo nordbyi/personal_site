@@ -16,7 +16,7 @@ const GameArea: React.FC = () => {
     <Typing win={win} loss={loss} setWin={setWin}/>
     <TimerDisplay time={20} win={win} loss={loss} updateGameLoss={setLoss}/>
     <GameText text={'Hi! I\'m Ian! I\'m glad you\'re here! I hope you have a good time and enjoy what I have created! If you see something that needs improvement, let me know!'}/>
-    <CharacterImage source={'https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif'}/>
+    <CharacterImage source={'https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif'} fade={'in'}/>
   </div>)
 }
 
