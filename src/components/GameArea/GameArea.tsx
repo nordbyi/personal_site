@@ -17,8 +17,8 @@ const GameArea: React.FC = () => {
 
   return (
   <div className="game-area">
-    <CharacterImage source={'https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif'} fade={true} slide-right={showTyping}/>
-    <div className="picture-typing-area">
+    <CharacterImage source={'https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif'} fade={true} slideLeft={showTyping}/>
+    <div className="top-section">
       {showTyping &&
       (<div className="typing-space">
         <Typing win={win} loss={loss} setWin={setWin}/>
