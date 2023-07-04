@@ -1,3 +1,9 @@
 .picture-typing-area {
   display: flex;
 }
+
+.typing-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
