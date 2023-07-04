@@ -1,6 +1,6 @@
 .timer-container {
-  width: 100vw; 
-  height: 100px; 
+  width: 70vw; 
+  /* height: 100px;  */
   display: flex;
 }
 
