@@ -3,6 +3,7 @@ import Typing from "../Typing/Typing";
 import TimerDisplay from "../TimerDisplay/TimerDisplay";
 import GameText from "../GameText/GameText";
 import CharacterImage from "../CharacterImage/CharacterImage";
+import './GameArea.css'
 
 const GameArea: React.FC = () => {
   const [win, setWin] = useState<boolean>(false);
