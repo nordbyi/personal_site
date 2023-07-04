@@ -20,7 +20,11 @@ const CharacterImage:React.FC<Props> = ({source, fade}) => {
     setFadeValue(fade)
   }, [fade])
 
-  return <img onClick={testPictureFlicker} className={`character-img ${fadeValue ? 'fade-in' : 'fade-out'}`} src={source}/>
+  return (
+    <div className="char-img-container">
+      <img onClick={testPictureFlicker} className={`character-img ${fadeValue ? 'fade-in' : 'fade-out'}`} src={source}/>
+    </div>
+  )
 }
 
 export default CharacterImage
