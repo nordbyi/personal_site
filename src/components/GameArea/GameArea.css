@@ -1,9 +1,19 @@
-.picture-typing-area {
-  display: flex;
+.game-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.typing-area {
+.picture-typing-area {
+  /* width: 100%; */
+  display: flex;
+  /* transition: all 1s; */
+}
+
+.typing-space {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
