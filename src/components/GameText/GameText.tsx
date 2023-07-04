@@ -17,10 +17,16 @@ const GameText: React.FC<Props> = ({ text }) => {
     }, 35);
   }, [textIndex]);
 
+  const displayAllText = () => {
+    if(textIndex < text.length) {
+      clearTimeout(timer)
+      setTextIndex(text.length)
+    }
+  }
   // send a set update to allow progression in game when text finishes displaying
 
   return (
-    <div onClick={() => {clearTimeout(timer); setTextIndex(text.length)}}>
+    <div onClick={displayAllText}>
       <p className="game-text">{text.substring(0, textIndex)}</p>
       <p>{textIndex}</p>
     </div>
