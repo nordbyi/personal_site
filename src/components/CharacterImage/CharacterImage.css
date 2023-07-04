@@ -1,6 +1,14 @@
-.character-img {
+.char-img-container {
   height: 60vh;
+  width: 30vw;
   transition: opacity .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-img {
+ height: 100%;
 }
 
 .fade-in {
