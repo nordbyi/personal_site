@@ -19,7 +19,7 @@ const GameArea: React.FC = () => {
   <div>
     <div className="picture-typing-area">
       {showTyping &&
-      (<div>
+      (<div className="typing-area">
         <Typing win={win} loss={loss} setWin={setWin}/>
         <TimerDisplay time={20} win={win} loss={loss} updateGameLoss={setLoss}/>
       </div>)}
