@@ -43,13 +43,11 @@ const Typing: React.FC<Props> = ({win, loss, setWin}) => {
   }, [textInput])
 
   return (
-    <div>
-      <div>
+      <div className="typing-text-display">
         <DisplayText example={example} current={textInput} />
         {/* Make error letter component that pops out wrong letters (at random directions?) 
         when pressed with animations that fade after a second or so  */}
       </div>
-    </div>
   );
 };
 
