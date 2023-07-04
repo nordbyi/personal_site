@@ -16,16 +16,7 @@
  height: 100%;
 }
 
-.fade-in {
-  opacity: 1;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
 .slide-left {
     left: 50%; 
-
     transform: translate(-50%)
 }
