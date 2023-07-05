@@ -28,7 +28,7 @@ const Typing: React.FC<Props> = ({win, loss, setWin, time, updateGameLoss, fade}
   
     if (event.key.length <= 1) {
       setTextInput(input + event.key)
-    } else if (event.key === 'Backspace') {
+    } else if (event.key === 'Backspace' && input.length > 0) {
       setTextInput(input.substring(0, input.length -1))
     } else {
     document.addEventListener('keydown', (event) => {
