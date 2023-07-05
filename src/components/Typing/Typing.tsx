@@ -9,17 +9,18 @@ interface Props {
   setWin: Dispatch<SetStateAction<boolean>>,
   time: number,
   updateGameLoss: Dispatch<SetStateAction<boolean>>,
+  fade: boolean
 }
 
 interface KeyboardEvent {
   key: string;
 }
 
-const Typing: React.FC<Props> = ({win, loss, setWin, time, updateGameLoss}) => {
+const Typing: React.FC<Props> = ({win, loss, setWin, time, updateGameLoss, fade}) => {
   const [textInput, setTextInput] = useState<string>("");
-  // const [win, setWin] = useState<boolean>(false);
+  const [fadeValue, setFadeValue] = useState<boolean>(false)
 
-  const example =
+  const example: string =
     "You must be a pretty tough fighter to have made it past my cow!";
 
   const handleKeydown = (event: KeyboardEvent, input: string, win: boolean): void => {
@@ -40,13 +41,16 @@ const Typing: React.FC<Props> = ({win, loss, setWin, time, updateGameLoss}) => {
       setWin(true);
       return
     }
-
     document.addEventListener('keydown', (event) => {
       handleKeydown(event, textInput, win)}, {once: true})
   }, [textInput])
 
+  useEffect(() => {
+    setFadeValue(fade)
+  }, [fade])
+
   return (
-      <div className="typing-text-display">
+      <div className={`typing-text-display ${fadeValue ? 'fade-in' : 'fade-out'}`}>
         <DisplayText example={example} current={textInput} />
         {/* Make error letter component that pops out wrong letters (at random directions?) 
         when pressed with animations that fade after a second or so  */}
