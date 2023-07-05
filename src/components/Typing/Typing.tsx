@@ -1,18 +1,21 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import DisplayText from "./DisplayText/DisplayText";
+import TimerDisplay from "../TimerDisplay/TimerDisplay";
 import "./Typing.css";
 
 interface Props {
   win: boolean,
   loss: boolean,
-  setWin: Dispatch<SetStateAction<boolean>>
+  setWin: Dispatch<SetStateAction<boolean>>,
+  time: number,
+  updateGameLoss: Dispatch<SetStateAction<boolean>>,
 }
 
 interface KeyboardEvent {
   key: string;
 }
 
-const Typing: React.FC<Props> = ({win, loss, setWin}) => {
+const Typing: React.FC<Props> = ({win, loss, setWin, time, updateGameLoss}) => {
   const [textInput, setTextInput] = useState<string>("");
   // const [win, setWin] = useState<boolean>(false);
 
@@ -47,6 +50,7 @@ const Typing: React.FC<Props> = ({win, loss, setWin}) => {
         <DisplayText example={example} current={textInput} />
         {/* Make error letter component that pops out wrong letters (at random directions?) 
         when pressed with animations that fade after a second or so  */}
+        <TimerDisplay win={win} loss={loss} time={time} updateGameLoss={updateGameLoss}/>
       </div>
   );
 };

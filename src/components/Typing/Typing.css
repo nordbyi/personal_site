@@ -1,5 +1,9 @@
 .typing-text-display {
-  width: 70vw;
+    width: 70vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .missing {

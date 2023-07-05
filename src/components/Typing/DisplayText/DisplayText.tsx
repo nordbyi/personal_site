@@ -16,18 +16,18 @@ const DisplayText: React.FC<Props> = ({example, current}) => {
     
     if(wrongStart === -1) {
       return (
-      <>
+      <div>
         <span className="correct">{current}</span>
         <span className="missing">{example.substring(current.length)}</span>
-      </>
+      </div>
      )
     } else {
      return (
-      <>
+      <div>
         <span className="correct">{example.substring(0, wrongStart)}</span>
         <span className="incorrect">{example.substring(wrongStart, current.length)}</span>
         <span className="missing">{example.substring(current.length)}</span>
-      </>
+      </div>
      )
     }
 }
