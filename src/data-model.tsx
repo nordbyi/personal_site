@@ -27,3 +27,5 @@ const testData: step[] = [
     unmountAnimation: false,
     lockProgress: false}
 ]
+
+export default testData

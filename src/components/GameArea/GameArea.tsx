@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Typing from "../Typing/Typing";
 import GameText from "../GameText/GameText";
 import CharacterImage from "../CharacterImage/CharacterImage";
+import testData from "../../data-model";
 import './GameArea.css'
 
 const GameArea: React.FC = () => {
