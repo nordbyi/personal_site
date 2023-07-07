@@ -20,7 +20,7 @@ const testData: step[] = [
     mountAnimation: true,
     unmountAnimation: true,
     lockProgress: true},
-  {text: 'Testing 123',
+  {text: 'Game should be over',
     emote: "https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif",
     game: false,
     mountAnimation: false,
