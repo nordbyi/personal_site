@@ -16,6 +16,11 @@ const GameArea: React.FC = () => {
     setShowTyping(!showTyping)
   }
 
+  const progressGame = () => {
+    if(!canProgress) return
+    setProgressIndex(progressIndex + 1)
+  }
+
   useEffect(() => {
     console.log('loss updated')
   }, [loss])
@@ -25,9 +30,11 @@ const GameArea: React.FC = () => {
     <div onClick={toggleTypingView} className="top-section">
       {testData[progressIndex].game && <Typing win={win} loss={loss} setWin={setWin} time={20} updateGameLoss={setLoss} fade={true}/>}
       {/* conditionally render projects */}
-      <CharacterImage source={testData[progressIndex].emote} fade={true} slideLeft={showTyping}/>
+      <CharacterImage source={testData[progressIndex].emote} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>
-    <GameText text={testData[progressIndex].text}/>
+    <div onClick={progressGame}>
+      <GameText text={testData[progressIndex].text}/>
+    </div>
   </div>)
 }
 
