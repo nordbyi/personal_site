@@ -25,6 +25,12 @@ const GameArea: React.FC = () => {
     console.log('loss updated')
   }, [loss])
 
+  useEffect(() => {
+    if(testData[progressIndex].lockProgress) {
+      setCanProgress(false)
+    }
+  }, [progressIndex])
+
   return (
   <div  className="game-area">
     <div onClick={toggleTypingView} className="top-section">
