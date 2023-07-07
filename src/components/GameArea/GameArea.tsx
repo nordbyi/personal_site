@@ -12,13 +12,15 @@ const GameArea: React.FC = () => {
   const [loss, setLoss] = useState<boolean>(false);
   const [showTyping, setShowTyping] = useState<boolean>(false) // replace with data model's value when made
 
-  const toggleTypingView = () => {
-    setShowTyping(!showTyping)
-  }
+  // const toggleTypingView = () => {
+  //   setShowTyping(!showTyping)
+  // }
 
   const progressGame = () => {
     if(!canProgress) return
     setProgressIndex(progressIndex + 1)
+    setWin(false)
+    setLoss(false)
   }
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const GameArea: React.FC = () => {
 
   return (
   <div  className="game-area">
-    <div onClick={toggleTypingView} className="top-section">
+    <div className="top-section">
       {testData[progressIndex].game && <Typing win={win} loss={loss} setWin={setWin} time={20} updateGameLoss={setLoss} fade={true} />}
       {/* conditionally render projects */}
       <CharacterImage source={testData[progressIndex].emote} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
