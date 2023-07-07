@@ -49,7 +49,7 @@ const GameArea: React.FC = () => {
   return (
   <div  className="game-area">
     <div className="top-section">
-      {testData[progressIndex].game && <Typing win={win} loss={loss} setWin={setWin} time={20} updateGameLoss={setLoss} fade={fadeInOut} />}
+      {testData[progressIndex].game && <Typing text={testData[progressIndex].gameText} win={win} loss={loss} setWin={setWin} time={20} updateGameLoss={setLoss} fade={fadeInOut} />}
       {/* conditionally render projects */}
       <CharacterImage source={testData[progressIndex].emote} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>

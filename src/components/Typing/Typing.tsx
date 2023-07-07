@@ -4,6 +4,7 @@ import TimerDisplay from "../TimerDisplay/TimerDisplay";
 import "./Typing.css";
 
 interface Props {
+  text: string
   win: boolean,
   loss: boolean,
   setWin: Dispatch<SetStateAction<boolean>>,
@@ -16,12 +17,12 @@ interface KeyboardEvent {
   key: string;
 }
 
-const Typing: React.FC<Props> = ({win, loss, setWin, time, updateGameLoss, fade}) => {
+const Typing: React.FC<Props> = ({text, win, loss, setWin, time, updateGameLoss, fade}) => {
   const [textInput, setTextInput] = useState<string>("");
   const [fadeValue, setFadeValue] = useState<boolean>(false)
 
-  const example: string =
-    "You must be a pretty tough fighter to have made it past my cow!";
+  // const example: string =
+  //   "You must be a pretty tough fighter to have made it past my cow!";
 
   const handleKeydown = (event: KeyboardEvent, input: string, win: boolean): void => {
     if (win || loss) return
@@ -37,7 +38,7 @@ const Typing: React.FC<Props> = ({win, loss, setWin, time, updateGameLoss, fade}
   }
 
   useEffect(() => {
-    if(textInput === example && !loss) {
+    if(textInput === text && !loss) {
       setWin(true);
       return
     }
@@ -51,7 +52,7 @@ const Typing: React.FC<Props> = ({win, loss, setWin, time, updateGameLoss, fade}
 
   return (
       <div className={`typing-text-display ${fadeValue ? 'fade-in' : 'fade-out'}`}>
-        <DisplayText example={example} current={textInput} />
+        <DisplayText example={text} current={textInput} />
         {/* Make error letter component that pops out wrong letters (at random directions?) 
         when pressed with animations that fade after a second or so  */}
         <TimerDisplay win={win} loss={loss} time={time} updateGameLoss={updateGameLoss}/>
