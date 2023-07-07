@@ -40,9 +40,17 @@ const GameArea: React.FC = () => {
 
   useEffect(() => {
     if(win || loss) {
-      setCanProgress(true)
+      setTimeout(() => {
+        setCanProgress(true)
+      }, 2000)
     }
   }, [win, loss])
+
+  useEffect(() => {
+    if(canProgress && (win || loss)) {
+      progressGame()
+    }
+  }, [canProgress])
 
   return (
   <div  className="game-area">
