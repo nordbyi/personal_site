@@ -26,8 +26,6 @@ const GameArea: React.FC = () => {
     } else {
       setProgressIndex(progressIndex + 1)
     }
-    setWin(false)
-    setLoss(false)
   }
 
   useEffect(() => {
