@@ -10,7 +10,7 @@ interface Props {
 }
 
 const TimerDisplay: React.FC<Props> = ({time, win, loss, updateGameLoss}) => {
- 
+
   const [width, setWidth] = useState<string>('100%')
 
   useEffect(() => {
