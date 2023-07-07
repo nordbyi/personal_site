@@ -31,10 +31,16 @@ const GameArea: React.FC = () => {
     }
   }, [progressIndex])
 
+  useEffect(() => {
+    if(win || loss) {
+      setCanProgress(true)
+    }
+  }, [win, loss])
+
   return (
   <div  className="game-area">
     <div onClick={toggleTypingView} className="top-section">
-      {testData[progressIndex].game && <Typing win={win} loss={loss} setWin={setWin} time={20} updateGameLoss={setLoss} fade={true}/>}
+      {testData[progressIndex].game && <Typing win={win} loss={loss} setWin={setWin} time={20} updateGameLoss={setLoss} fade={true} />}
       {/* conditionally render projects */}
       <CharacterImage source={testData[progressIndex].emote} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>
