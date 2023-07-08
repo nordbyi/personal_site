@@ -10,7 +10,7 @@ const GameArea: React.FC = () => {
   const [canProgress, setCanProgress] = useState<boolean>(true)
   const [win, setWin] = useState<boolean>(false);
   const [loss, setLoss] = useState<boolean>(false);
-  const [fadeInOut, setFadeInOut] = useState<boolean>(true) // replace with data model's value when made
+  const [fadeInOut, setFadeInOut] = useState<boolean>(true)
 
   // const toggleTypingView = () => {
   //   setShowTyping(!showTyping)
@@ -26,6 +26,11 @@ const GameArea: React.FC = () => {
     } else {
       setProgressIndex(progressIndex + 1)
     }
+  }
+
+  const calculateTime = (text: string, difficulty: string) => {
+    // add difficulty and modify return time sometime
+    return 3 + text.split(' ').length
   }
 
   useEffect(() => {
@@ -55,7 +60,7 @@ const GameArea: React.FC = () => {
   return (
   <div  className="game-area">
     <div className="top-section">
-      {testData[progressIndex].game && <Typing text={testData[progressIndex].gameText} win={win} loss={loss} setWin={setWin} time={20} updateGameLoss={setLoss} fade={fadeInOut} />}
+      {testData[progressIndex].game && <Typing text={testData[progressIndex].gameText} win={win} loss={loss} setWin={setWin} time={calculateTime(testData[progressIndex].gameText, '')} updateGameLoss={setLoss} fade={fadeInOut} />}
       {/* conditionally render projects */}
       <CharacterImage source={testData[progressIndex].emote} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>
