@@ -18,6 +18,14 @@ const GameArea: React.FC = () => {
 
   const progressGame = () => {
     if(!canProgress) return
+    if(!testData[progressIndex + 1]) {
+      setProgressIndex(0)
+      setWin(false)
+      setLoss(false)
+      setFadeInOut(true)
+      return
+      // take out above state updates and route to next url when built
+    }
     if(testData[progressIndex].unmountDelay){
       setFadeInOut(false)
       setTimeout(() => {
