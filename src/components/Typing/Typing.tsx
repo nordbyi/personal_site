@@ -24,16 +24,18 @@ const Typing: React.FC<Props> = ({text, win, loss, setWin, time, updateGameLoss,
   // const example: string =
   //   "You must be a pretty tough fighter to have made it past my cow!";
 
-  const handleKeydown = (event: KeyboardEvent, input: string, win: boolean): void => {
+  const handleKeydown = (event: KeyboardEvent, input: string, win: boolean, text: string): void => {
     if (win || loss) return
-  
-    if (event.key.length <= 1) {
+    if (input.length >= text.length && event.key !== 'Backspace') {
+      document.addEventListener('keydown', (event) => {
+        handleKeydown(event, input, win, text)}, {once: true})
+    } else if (event.key.length <= 1) {
       setTextInput(input + event.key)
     } else if (event.key === 'Backspace' && input.length > 0) {
       setTextInput(input.substring(0, input.length -1))
     } else {
     document.addEventListener('keydown', (event) => {
-      handleKeydown(event, input, win)}, {once: true})
+      handleKeydown(event, input, win, text)}, {once: true})
     }
   }
 
@@ -43,7 +45,7 @@ const Typing: React.FC<Props> = ({text, win, loss, setWin, time, updateGameLoss,
       return
     }
     document.addEventListener('keydown', (event) => {
-      handleKeydown(event, textInput, win)}, {once: true})
+      handleKeydown(event, textInput, win, text)}, {once: true})
   }, [textInput])
 
   useEffect(() => {
