@@ -9,14 +9,16 @@ import './GameArea.css'
 const GameArea: React.FC = () => {
   const [progressIndex, setProgressIndex] = useState<number>(0)
   const [canProgress, setCanProgress] = useState<boolean>(true)
+  const [typewritterDone, setTypewritterDone] = useState<boolean>(false)
   const [win, setWin] = useState<boolean>(false);
   const [loss, setLoss] = useState<boolean>(false);
   const [fadeInOut, setFadeInOut] = useState<boolean>(true)
 
   const progressGame = () => {
-    if(!canProgress) return
+    if(!canProgress || !typewritterDone) return
     if(!testData[progressIndex + 1]) {
       setFadeInOut(false)
+      // may need to setCanProgress(false) here to stop user from clicking a bunch and setting a bunch of timeouts
       setTimeout(() => {
         setProgressIndex(0)
         setWin(false)
@@ -55,6 +57,7 @@ const GameArea: React.FC = () => {
   }, [loss])
 
   useEffect(() => {
+    setTypewritterDone(false)
     if(testData[progressIndex].lockProgress) {
       setCanProgress(false)
     }
@@ -82,7 +85,7 @@ const GameArea: React.FC = () => {
       <CharacterImage source={testData[progressIndex].emote[0]} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>
     <div onClick={progressGame}>
-      <GameText text={textToDisplay()}/>
+      <GameText text={textToDisplay()} updateTextDisplayed={setTypewritterDone} />
     </div>
   </div>)
 }
