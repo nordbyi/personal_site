@@ -12,10 +12,6 @@ const GameArea: React.FC = () => {
   const [loss, setLoss] = useState<boolean>(false);
   const [fadeInOut, setFadeInOut] = useState<boolean>(true)
 
-  // const toggleTypingView = () => {
-  //   setShowTyping(!showTyping)
-  // }
-
   const progressGame = () => {
     if(!canProgress) return
     if(!testData[progressIndex + 1]) {
@@ -78,7 +74,7 @@ const GameArea: React.FC = () => {
     <div className="top-section">
       {testData[progressIndex].game && <Typing text={testData[progressIndex].gameText!} win={win} loss={loss} setWin={setWin} time={calculateTime(testData[progressIndex].gameText!, '')} updateGameLoss={setLoss} fade={fadeInOut} />}
       {/* conditionally render projects */}
-      <CharacterImage source={testData[progressIndex].emote} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
+      <CharacterImage source={testData[progressIndex].emote[0]} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>
     <div onClick={progressGame}>
       <GameText text={textToDisplay()}/>
