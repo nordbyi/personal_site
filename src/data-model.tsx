@@ -1,10 +1,8 @@
 type step = {
-  text: string[],
+  text: string[], // default text, game win text, game loss text
   emote: string,
   game: boolean,
   gameText?: string,
-  // gameWinText?: string,
-  // gameLossText?: string,
   mountAnimation: boolean,
   unmountDelay: number,
   lockProgress: boolean,
@@ -27,8 +25,6 @@ const testData: step[] = [
   {text: ['', 'Nice job! You crushed it!', 'Close one! Better luck next time!'],
     emote: "https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif",
     game: false,
-    // gameWinText: 'Nice job! You crushed it!',
-    // gameLossText: 'Close one! Better luck next time!',
     mountAnimation: false,
     unmountDelay: 0,
     lockProgress: false}
