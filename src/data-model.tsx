@@ -1,5 +1,5 @@
 type step = {
-  text: string[], // default text, game win text, game loss text
+  text: string[], // default text, game win text, game loss text (in future add repeat default text, repeat win text, repeat loss text, hidden text )
   emote: string[],
   game: boolean,
   gameText?: string,
@@ -8,6 +8,7 @@ type step = {
   lockProgress: boolean,
   project: string,
 }
+// maybe refactor emote and possibly text above to be an object with properties of different emotions that the game can select from depending on win, loss, repeating, secret"
 
 const testData: step[] = [
   {text: ['Testing 123'],
@@ -35,7 +36,7 @@ const testData: step[] = [
   {text: ["This will show one of the projects I've created once I get the functionality and component all set up!"],
     emote: ["https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif"],
     game: false,
-    mountAnimation: false,
+    mountAnimation: true,
     unmountDelay: 0,
     lockProgress: false,
     project: '_______'}
