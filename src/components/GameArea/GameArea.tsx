@@ -41,6 +41,14 @@ const GameArea: React.FC = () => {
     return 3 + text.split(' ').length
   }
 
+  const textToDisplay = (): string => {
+    if (testData[progressIndex].gameWinText || testData[progressIndex].gameLossText && ( win || loss)) {
+      return win ? testData[progressIndex].gameWinText! : testData[progressIndex].gameLossText!
+    } else {
+      return testData[progressIndex].text!
+    }
+  }
+
   useEffect(() => {
     console.log('loss updated')
   }, [loss])
@@ -68,12 +76,12 @@ const GameArea: React.FC = () => {
   return (
   <div  className="game-area">
     <div className="top-section">
-      {testData[progressIndex].game && <Typing text={testData[progressIndex].gameText} win={win} loss={loss} setWin={setWin} time={calculateTime(testData[progressIndex].gameText, '')} updateGameLoss={setLoss} fade={fadeInOut} />}
+      {testData[progressIndex].game && <Typing text={testData[progressIndex].gameText!} win={win} loss={loss} setWin={setWin} time={calculateTime(testData[progressIndex].gameText!, '')} updateGameLoss={setLoss} fade={fadeInOut} />}
       {/* conditionally render projects */}
       <CharacterImage source={testData[progressIndex].emote} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>
     <div onClick={progressGame}>
-      <GameText text={testData[progressIndex].text}/>
+      <GameText text={textToDisplay()}/>
     </div>
   </div>)
 }
