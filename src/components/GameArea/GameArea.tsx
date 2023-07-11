@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Typing from "../Typing/Typing";
 import GameText from "../GameText/GameText";
 import CharacterImage from "../CharacterImage/CharacterImage";
+import ProjectDisplay from "../ProjectDisplay/ProjectDisplay";
 import testData from "../../data-model";
 import './GameArea.css'
 
@@ -73,7 +74,7 @@ const GameArea: React.FC = () => {
   <div  className="game-area">
     <div className="top-section">
       {testData[progressIndex].game && <Typing text={testData[progressIndex].gameText!} win={win} loss={loss} setWin={setWin} time={calculateTime(testData[progressIndex].gameText!, '')} updateGameLoss={setLoss} fade={fadeInOut} />}
-      {/* conditionally render projects */}
+      {testData[progressIndex].project && <ProjectDisplay />}
       <CharacterImage source={testData[progressIndex].emote[0]} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>
     <div onClick={progressGame}>
