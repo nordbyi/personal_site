@@ -37,7 +37,7 @@ const testData: step[] = [
     emote: ["https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif"],
     game: false,
     mountAnimation: true,
-    unmountDelay: 0,
+    unmountDelay: 500,
     lockProgress: false,
     project: '_______'}
 ]
