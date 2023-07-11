@@ -3,7 +3,7 @@ import './ProjectDisplay.css'
 
 const ProjectDisplay:React.FC = () => {
   return (
-    <div>
+    <div className='project-container'>
       <p>Hello</p>
     </div>
   )
