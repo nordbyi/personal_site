@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Dispatch, SetStateAction } from "react";
 import './GameText.css'
 
 interface Props {
   text: string;
+  updateTextDisplayed: Dispatch<SetStateAction<boolean>>,
 }
 
-const GameText: React.FC<Props> = ({ text }) => {
+const GameText: React.FC<Props> = ({ text, updateTextDisplayed }) => {
   const [textIndex, setTextIndex] = useState<number>(0);
 
   let timer: ReturnType<typeof setTimeout>
 
   useEffect(() => {
-    if (textIndex >= text.length) return;
+    if (textIndex >= text.length) {
+      updateTextDisplayed(true)
+      return
+    }
     timer = setTimeout(() => {
       setTextIndex(textIndex + 1);
     }, 35);
+
   }, [textIndex]);
 
   useEffect(() => {
