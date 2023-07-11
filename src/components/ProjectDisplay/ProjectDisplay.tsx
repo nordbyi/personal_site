@@ -1,4 +1,5 @@
 import React from 'react'
+import './ProjectDisplay.css'
 
 const ProjectDisplay:React.FC = () => {
   return (
