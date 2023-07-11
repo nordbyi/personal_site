@@ -1,5 +1,5 @@
 type step = {
-  text: string,
+  text?: string,
   emote: string,
   game: boolean,
   gameText?: string,
@@ -24,7 +24,7 @@ const testData: step[] = [
     mountAnimation: true,
     unmountDelay: 500,
     lockProgress: true},
-  {text: 'Game should be over',
+  {
     emote: "https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif",
     game: false,
     gameWinText: 'Nice job! You crushed it!',
