@@ -42,10 +42,10 @@ const GameArea: React.FC = () => {
   }
 
   const textToDisplay = (): string => {
-    if (testData[progressIndex].gameWinText || testData[progressIndex].gameLossText && ( win || loss)) {
-      return win ? testData[progressIndex].gameWinText! : testData[progressIndex].gameLossText!
+    if (( win || loss) && testData[progressIndex].text.length > 1) {
+      return win ? testData[progressIndex].text[1] : testData[progressIndex].text[2]!
     } else {
-      return testData[progressIndex].text!
+      return testData[progressIndex].text[0]!
     }
   }
 
