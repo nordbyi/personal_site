@@ -17,6 +17,10 @@ const GameText: React.FC<Props> = ({ text }) => {
     }, 35);
   }, [textIndex]);
 
+  useEffect(() => {
+    setTextIndex(0)
+  }, [text])
+
   const displayAllText = () => {
     if(textIndex < text.length) {
       clearTimeout(timer)
