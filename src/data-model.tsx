@@ -9,6 +9,8 @@ type step = {
   project: string,
 }
 // maybe refactor emote and possibly text above to be an object with properties of different emotions that the game can select from depending on win, loss, repeating, secret"
+// Perhaps refactor text oriented properties to be arrays of strings that contain all the text I want to display
+//      and traverse over that array and when the end is hit, then move to next data model step?
 
 const testData: step[] = [
   {text: ['Testing 123'],
@@ -39,7 +41,21 @@ const testData: step[] = [
     mountAnimation: true,
     unmountDelay: 500,
     lockProgress: false,
-    project: '_______'}
+    project: 'doomscroll'},
+  {text: ['Let\'s talk about another of my projects! How exciting!'],
+    emote: ["https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif"],
+    game: false,
+    mountAnimation: false,
+    unmountDelay: 0,
+    lockProgress: false,
+    project: ''},
+  {text: ["This will show one of the projects I've created once I get the functionality and component all set up!"],
+    emote: ["https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif"],
+    game: false,
+    mountAnimation: true,
+    unmountDelay: 500,
+    lockProgress: false,
+    project: 'personal'}
 ]
 
 export default testData
