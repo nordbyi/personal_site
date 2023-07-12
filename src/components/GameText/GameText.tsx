@@ -32,12 +32,10 @@ const GameText: React.FC<Props> = ({ text, updateTextDisplayed }) => {
       setTextIndex(text.length)
     }
   }
-  // send a set update to allow progression in game when text finishes displaying
 
   return (
     <div onClick={displayAllText}>
       <p className="game-text">{text.substring(0, textIndex)}</p>
-      <p>{textIndex}</p>
     </div>
   );
 };
