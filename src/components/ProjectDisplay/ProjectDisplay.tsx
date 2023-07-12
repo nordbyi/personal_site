@@ -3,10 +3,11 @@ import './ProjectDisplay.css'
 import GameArea from '../GameArea/GameArea'
 
 interface Props {
+  project: string,
   fade: boolean
 }
 
-const ProjectDisplay:React.FC<Props> = ({fade}) => {
+const ProjectDisplay:React.FC<Props> = ({project, fade}) => {
   const [fadeValue, setFadeValue] = useState<boolean>(false)
 
   useEffect(() => {

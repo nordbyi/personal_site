@@ -81,7 +81,7 @@ const GameArea: React.FC = () => {
   <div  className="game-area">
     <div className="top-section">
       {testData[progressIndex].game && <Typing text={testData[progressIndex].gameText!} win={win} loss={loss} setWin={setWin} time={calculateTime(testData[progressIndex].gameText!, '')} updateGameLoss={setLoss} fade={fadeInOut} />}
-      {testData[progressIndex].project && <ProjectDisplay fade={fadeInOut}/>}
+      {testData[progressIndex].project && <ProjectDisplay project={testData[progressIndex].project} fade={fadeInOut}/>}
       <CharacterImage source={testData[progressIndex].emote[0]} fade={true} slideLeft={testData[progressIndex].mountAnimation}/>
     </div>
     <div onClick={progressGame}>
