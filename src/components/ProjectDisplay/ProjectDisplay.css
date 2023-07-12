@@ -1,6 +1,6 @@
 .project-container {
-  height: 60vh;
-  width: 70vw;
-  background-color: black;
+  height: 100%;
+  width: 70%;
+  /* background-color: black; */
   transition: all .5s;
 }
