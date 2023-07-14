@@ -10,12 +10,13 @@ interface Props {
 const projects = {
   doomscroll: {
     title: 'DoomScroll',
-    src: '',
+    src: 'https://user-images.githubusercontent.com/108428451/227252664-e3826440-001c-4081-89f1-8920b05adb53.gif',
+    deployed: '',
     repo: ''
   },
   outgrown: {
     title: 'OutGrown',
-    src:'',
+    src:'https://user-images.githubusercontent.com/113647295/230459724-29bee323-b7be-482c-b931-162e4763f035.gif',
     deployed: '',
     repo: ''
   }
@@ -24,7 +25,7 @@ const projects = {
 const ProjectDisplay:React.FC<Props> = ({project, fade}) => {
   const [fadeValue, setFadeValue] = useState<boolean>(false)
 
-  const projectToDisplay = projects[project as keyof typeof projects] ? projects[project as keyof typeof projects] : {title: 'erro'}
+  const projectToDisplay = projects[project as keyof typeof projects] ? projects[project as keyof typeof projects] : {title: 'error', src: '', repo: '', deployed: ''}
 
   useEffect(() => {
     setFadeValue(fade)
@@ -33,8 +34,13 @@ const ProjectDisplay:React.FC<Props> = ({project, fade}) => {
   return (
     <div className={`project-container ${fadeValue ? 'fade-in' : 'fade-out'}`}>
       {project !== 'personal' && (
-        <div>
+        <div className='project'>
           <h2>{projectToDisplay.title}</h2>
+          <img src={projectToDisplay.src}/>
+          <div className='links'>
+            <a>Repo Link</a>
+            {projectToDisplay.deployed && <a>Deployed Link</a>}
+          </div>
         </div>
       )}
       {project === 'personal' && < GameArea />}
