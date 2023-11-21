@@ -19,6 +19,12 @@ const projects = {
     src:'https://user-images.githubusercontent.com/113647295/230459724-29bee323-b7be-482c-b931-162e4763f035.gif',
     deployed: 'https://outgrown.vercel.app/',
     repo: 'https://github.com/Outgrown/outgrown_fe'
+  },
+  personal: {
+    title: 'This Site! (4th wall break!)',
+    src: '',
+    repo: 'https://github.com/nordbyi/personal_site',
+    deployed: ''
   }
 }
 
@@ -33,17 +39,17 @@ const ProjectDisplay:React.FC<Props> = ({project, fade}) => {
 
   return (
     <div className={`project-container ${fadeValue ? 'fade-in' : 'fade-out'}`}>
-      {project !== 'personal' && (
         <div className='project'>
           <h2>{projectToDisplay.title}</h2>
-          <img src={projectToDisplay.src}/>
+          <div className='project-visual'>
+            {project !== 'personal' && <img src={projectToDisplay.src}/>}
+            {project === 'personal' && < GameArea />}
+          </div>
           <div className='links'>
             <a href={projectToDisplay.repo} target='_blank'>Repo Link</a>
             {projectToDisplay.deployed && <a href={projectToDisplay.deployed} target='_blank'>Deployed Link</a>}
           </div>
         </div>
-      )}
-      {project === 'personal' && < GameArea />}
     </div>
   )
 }

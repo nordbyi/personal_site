@@ -24,6 +24,7 @@ const GameText: React.FC<Props> = ({ text, updateTextDisplayed }) => {
 
   useEffect(() => {
     setTextIndex(0)
+    updateTextDisplayed(false)
   }, [text])
 
   const displayAllText = () => {

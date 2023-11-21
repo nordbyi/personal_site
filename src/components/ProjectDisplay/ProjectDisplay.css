@@ -16,8 +16,15 @@
   align-items: center;
 }
 
-img {
+.project-visual {
+  display: flex;
+  justify-content: center;
   height: 80%;
+  width: 80%;
+}
+
+img {
+  height: 100%;
 }
 
 .links {

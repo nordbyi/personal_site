@@ -1,5 +1,15 @@
+type conditionalText = {
+  win?: string[],
+  loss?: string[],
+  repeatText?: string[],
+  repeatWin?: string[],
+  repeatLoss?: string[],
+  hidden?: string[]
+}
+
 type step = {
-  text: string[], // default text, game win text, game loss text (in future add repeat default text, repeat win text, repeat loss text, hidden text )
+  text: string[], 
+  conditionalText?: conditionalText,
   emote: string[],
   game: boolean,
   gameText?: string,
@@ -13,7 +23,7 @@ type step = {
 //      and traverse over that array and when the end is hit, then move to next data model step?
 
 const testData: step[] = [
-  {text: ['Testing 123'],
+  {text: ['Testing 123', 'This should show up before moving on to typing game'],
     emote: ['https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif'],
     game: false,
     mountAnimation: false,
@@ -28,7 +38,11 @@ const testData: step[] = [
     unmountDelay: 500,
     lockProgress: true,
     project: ''},
-  {text: ['', 'Nice job! You crushed it!', 'Close one! Better luck next time!'],
+  {text: ['Should not see this'],
+    conditionalText: {
+      win: ['Nice job! You crushed it!'],
+      loss: ['Close one! Better luck next time!']
+    },
     emote: ["https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif"],
     game: false,
     mountAnimation: false,
